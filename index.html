@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+	<title>Bikes</title>
+
+	<script type="application/javascript" src="https://code.jquery.com/jquery-1.10.2.js"> </script>
+	<script>
+	// Below script to load give json file.
+	$(function() {
+		var bikes = [];
+		var dataJSON = "https://raw.githubusercontent.com/jujhars13/jujhars13/master/bikes.json";
+		$.getJSON( dataJSON, function(data) {
+			$.each(data.items, function(i, f) {
+				var tblRow = "<tr>" + "<td>" + f.name + "</td>" + "<td>" + f.description + "</td>" + "<td> <img src =" + f.image  + "</img>" + "</td>" + "<td>" + f.class + "</td>" + "</tr>"
+				$(tblRow).appendTo("#bikedata tbody");
+			});
+		});
+	});
+
+	</script>
+
+    <!-- css styling below: class= bikeTable th and td are styled after calling the class bikeTable -->
+	<style>
+	.bikeTable {
+		width: 100%;
+		text-align: left;
+  		background-color: lightgray;
+  		border-collapse: collapse; 
+  	}
+	.bikeTable th { 
+  		background-color: grey;
+  		color: white; 
+  		padding: 10px;
+  		border: 1px solid grey; 
+  		text-align: left;
+  	}
+	.bikeTable td{
+		background-color: lightgray; 
+		text-align: :left;		
+	} 
+	</style>
+
+</head>
+
+<!-- Table below  -->
+<div class="wrapper">
+	<div class="bike">
+		<table class= "bikeTable" id="bikedata" border="1">
+			<thead>
+				<th>Name</th>
+        		<th>Description</th>
+        		<th>Image </th>
+        		<th>Class</th>
+    		</thead>
+  			<tbody>
+  				<!-- tr and td is fetched from js -->
+   			</tbody>
+		</table>
+	</div>
+</div>
+
+</body>
+</html>
+</html>
